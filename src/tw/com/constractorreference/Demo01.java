@@ -2,7 +2,6 @@ package tw.com.constractorreference;
 
 import java.util.Arrays;
 import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Supplier;
 

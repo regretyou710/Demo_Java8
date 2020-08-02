@@ -105,7 +105,7 @@ public class Demo01 {
 			public int compare(Integer o1, Integer o2) {
 				System.out.println(o1);
 				System.out.println(o2);
-				return o1.compareTo(o2);
+				return o1.compareTo(o2);				
 			}
 		};
 		System.out.println(comparator1.compare(5, 10));
@@ -115,7 +115,7 @@ public class Demo01 {
 		Comparator<Integer> comparator2 = (o1, o2) -> {
 			System.out.println(o1);
 			System.out.println(o2);
-			return o1.compareTo(o2);
+			return o1.compareTo(o2);			
 		};
 		System.out.println(comparator2.compare(15, 10));
 	}

@@ -98,7 +98,7 @@ public class Demo01 {
 		System.out.println("-----------------");
 
 		BiPredicate<String, String> biPredicate2 = String::equals;
-		System.out.println(biPredicate1.test("AB", "BA"));
+		System.out.println(biPredicate2.test("AB", "BA"));
 	}
 
 	// Funcation中的R apply(T t)
