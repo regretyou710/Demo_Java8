@@ -16,7 +16,7 @@ import tw.com.bean.Employee;
  * 方法引用的要求:要求介面中的抽象方法的參數列表和返回值類型與方法引用的參數列表和返回值類型相同(針對情況一和情況二)
  */
 public class Demo01 {
-
+	
 	// 情況一: 物件(對象)::實例方法
 	// Consumer中的void accept(T t)
 	// PrintStream中的void println(T t)

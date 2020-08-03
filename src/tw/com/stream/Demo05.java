@@ -1,5 +1,6 @@
 package tw.com.stream;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -78,7 +79,7 @@ public class Demo05 {
 	}
 
 	// max(Comparator c):
-	// 返回最高工資
+	// 返回最高薪資
 	@Test
 	public void test07() {
 		List<Employee> employees = EmployeeData.getEmployees();
@@ -93,26 +94,41 @@ public class Demo05 {
 	}
 
 	// min(Comparator c):
-	// 返回最低工資的"員工"
+	// 返回最低薪資的"員工"
 	@Test
 	public void test08() {
+
+		new Comparator<Employee>() {
+			@Override
+			public int compare(Employee o1, Employee o2) {
+				// TODO Auto-generated method stub
+				return Double.compare(o1.getSalary(), o2.getSalary());
+			}
+		};
+
+		
+
 		List<Employee> employees = EmployeeData.getEmployees();
-		Optional<Employee> minOpt = employees.stream().min((e1, e2) 
-				-> Double.compare(e1.getSalary(), e2.getSalary()));
+
+		Stream<Employee> stream = employees.stream();
+
+		// 因為是對員工物件進行薪資的比較規則所以在min()中使用方法引用會失敗
+		Optional<Employee> minOpt = stream.min((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
+		stream.min(Double::compare);
 		System.out.println(minOpt);
 	}
 
-	// forEach(Consumer):內部迭代	
+	// forEach(Consumer):內部迭代
 	@Test
 	public void test09() {
 		List<Employee> employees = EmployeeData.getEmployees();
-		
-		//這裡的forEach(Consumer)指的是在stream中的終止方法
+
+		// 這裡的forEach(Consumer)指的是在stream中的終止方法
 		employees.stream().forEach(System.out::print);
-		
+
 		System.out.println();
-		
-		//這裡的forEach(Consumer)指的是集合中的迭代方法
+
+		// 這裡的forEach(Consumer)指的是集合中的迭代方法
 		employees.forEach(System.out::print);
 	}
 }
