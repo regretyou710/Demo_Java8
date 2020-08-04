@@ -25,7 +25,7 @@ public class Demo01 {
 		Girl girl = new Girl();
 		girl = null;
 		Optional<Girl> op = Optional.of(girl);
-
+		System.out.println(op);
 	}
 
 	// 如果ofNullable()參數為空，不會拋空指針異常，會顯示Optional是空的實例

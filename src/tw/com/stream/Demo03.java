@@ -28,6 +28,7 @@ public class Demo03 {
 		nameStream.filter(name -> name.length() > 3).forEach(System.out::println);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
 	public void test02() {
 		ArrayList list1 = new ArrayList();

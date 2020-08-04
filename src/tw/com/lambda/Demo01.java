@@ -73,11 +73,15 @@ public class Demo01 {
 
 	@Test
 	public void test04() {
+		
 		// 類型推斷
+		@SuppressWarnings("unused")
 		ArrayList<String> arrayList = new ArrayList<>();
 
 		// 類型推斷
+		@SuppressWarnings("unused")
 		int[] arr1 = new int[] { 1, 2, 3 };
+		@SuppressWarnings("unused")
 		int[] arr2 = { 1, 2, 3 };
 	}
 

@@ -22,9 +22,11 @@ public class Demo01 {
 		List<Employee> employees = EmployeeData.getEmployees();
 
 		// 返回一個順序流
+		@SuppressWarnings("unused")
 		Stream<Employee> stream = employees.stream();
 
 		// 返回一個並行流
+		@SuppressWarnings("unused")
 		Stream<Employee> parallelStream = employees.parallelStream();
 
 	}
@@ -33,17 +35,20 @@ public class Demo01 {
 	@Test
 	public void test02() {
 		int[] arr = { 1, 2, 3, 4, 5 };
+		@SuppressWarnings("unused")
 		IntStream stream = Arrays.stream(arr);
 
 		Employee e1 = new Employee(1001, "Tim");
 		Employee e2 = new Employee(1002, "Tom");
 		Employee[] emps = new Employee[] { e1, e2 };
+		@SuppressWarnings("unused")
 		Stream<Employee> stream2 = Arrays.stream(emps);
 	}
 
 	// 創建Stream方式三:透過Stream的of()
 	@Test
 	public void test03() {
+		@SuppressWarnings("unused")
 		Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
 	}
 

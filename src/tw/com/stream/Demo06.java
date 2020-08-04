@@ -3,7 +3,6 @@ package tw.com.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
 import org.junit.Test;
