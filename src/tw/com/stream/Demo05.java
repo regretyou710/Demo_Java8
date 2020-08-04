@@ -85,9 +85,8 @@ public class Demo05 {
 		List<Employee> employees = EmployeeData.getEmployees();
 		Stream<Double> mapStream = employees.stream().map(e -> e.getSalary());
 
-		// Optional<Double> maxOpt = mapStream.max((e1, e2) ->
-		// Double.compare(e1, e2));
-		Optional<Double> maxOpt = mapStream.max(Double::compare);
+		Optional<Double> maxOpt = mapStream.max((salary1, salary2) -> Double.compare(salary1, salary2));
+		//Optional<Double> maxOpt = mapStream.max(Double::compare);
 
 		System.out.println(maxOpt);
 
@@ -98,23 +97,22 @@ public class Demo05 {
 	@Test
 	public void test08() {
 
-		new Comparator<Employee>() {
-			@Override
-			public int compare(Employee o1, Employee o2) {
-				// TODO Auto-generated method stub
-				return Double.compare(o1.getSalary(), o2.getSalary());
-			}
-		};
-
-		
+		// new Comparator<Employee>() {
+		// @Override
+		// public int compare(Employee o1, Employee o2) {
+		// // TODO Auto-generated method stub
+		// return Double.compare(o1.getSalary(), o2.getSalary());
+		// }
+		// };
 
 		List<Employee> employees = EmployeeData.getEmployees();
 
 		Stream<Employee> stream = employees.stream();
 
 		// 因為是對員工物件進行薪資的比較規則所以在min()中使用方法引用會失敗
+		// 因為此時min()是對stream中的每一個Employee物件身上獲取salary屬性進行比較，在Employee身上不只有salary這個屬性，方法引用會失敗
 		Optional<Employee> minOpt = stream.min((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
-		stream.min(Double::compare);
+		// stream.min(Double::compare);
 		System.out.println(minOpt);
 	}
 
